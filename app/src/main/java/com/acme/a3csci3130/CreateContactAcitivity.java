@@ -35,9 +35,9 @@ public class CreateContactAcitivity extends Activity {
         String address = addressField.getText().toString();
         String type = typeField.getText().toString();
         String location = locationField.getText().toString();
-        Contact person = new Contact(businessID, bName, pNum, address, type, location);
+        Contact business = new Contact(businessID, bName, pNum, address, type, location);
 
-        appState.firebaseReference.child(businessID).setValue(person);
+        appState.firebaseReference.child(businessID).setValue(business);
 
         finish();
 

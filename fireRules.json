@@ -1,16 +1,25 @@
 {
-  "rules": {
-    ".read": "true",
-    ".write": "true",
-    "contacts": {
-            "$contact": {
-                "name": {
-                    ".validate": "newData.isString() && newData.val().length < 50"
-                },
-                "email": {
-                    ".validate": "newData.isString() && newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i)"
-                }
+"rules": {
+    "businesses": {
+        ".read": true,
+        ".write": true,
+      "$business": {
+        "name": {
+          ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <=24"
+        },
+        "phone": {
+          ".validate": "newData.isNumber() && newData.val() >= 10000000000 && newData.val() <= 19999999999"
+        },
+        "address": {
+           ".validate": "newData.isString() && newData.val().length < 50"
+        }, 
+        "location": {
+          ".validate": "newData.isString() && newData.val().toLowerCase().matches(/ab|bc|mb|nb|nl|ns|nt|nu|on|pe|qc|sk|yt| /)"
+        },
+          "type": {
+            ".validate": "newData.isString() && newData.val().toLowerCase().matches(/fisher|distributor|processor|fish monger/)"
+          }
             }
-        }
   }
+}
 }
